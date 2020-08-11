@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3abdawy/Simple-Graphql-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3abdawy/Simple-Graphql-Project/issues"
+  },
+  "homepage": "https://github.com/3abdawy/Simple-Graphql-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
