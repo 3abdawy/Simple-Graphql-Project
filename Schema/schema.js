@@ -27,6 +27,24 @@ let books = [
     genre: "Sci-Fi",
     id: "3",
     authorId: "3"
+  },
+  {
+    name: "The Hero of Ages",
+    genre: "Fantasy",
+    id: "4",
+    authorId: "2"
+  },
+  {
+    name: "The Colour Of Magic",
+    genre: "Fantasy",
+    id: "5",
+    authorId: "3"
+  },
+  {
+    name: "The Light Fantastic",
+    genre: "Fantasy",
+    id: "6",
+    authorId: "3"
   }
 ];
 let authors = [
@@ -53,10 +71,13 @@ const BookType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
-    author: { type: AuthorType, resolve(parent, args) {
-       console.log(parent);
-        return authors.find(author => parent.authorId === author.id)
-    } }
+    author: {
+      type: AuthorType,
+      resolve(parent, args) {
+        console.log(parent);
+        return authors.find(author => parent.authorId === author.id);
+      }
+    }
   })
 });
 
@@ -94,4 +115,3 @@ const RootQuery = new GraphQLObjectType({
 module.exports = new GraphQLSchema({
   query: RootQuery
 });
-
