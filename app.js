@@ -2,8 +2,12 @@ const express = require("express");
 const graphqlHTTP = require("express-graphql").graphqlHTTP;
 const schema = require("./Schema/schema");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
+
+//allow cors-origin
+app.use(cors());
 
 mongoose
   .connect(
@@ -12,7 +16,6 @@ mongoose
   )
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch(err => console.log("Error: ", err.message));
-
 
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true }));
 
